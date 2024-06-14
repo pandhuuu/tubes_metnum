@@ -5,6 +5,7 @@ using namespace std;
 // fungsi persamaan
 double f(double x, double y) {
     // Ini cuma fungsi contoh, gatau cara buat supaya bisa input persamaannya co
+    
     return y - pow(x, 2) + 1;
 }
 
@@ -32,7 +33,9 @@ void rungeKutta(double x0, double y0, double x, double h) {
 }
 
 int main() {
-    double x0 = 1, y = 1, x, h;
+    double x0 = 1, y = 1, x, h, per = pow(x, 2);
+
+    
 
     cout << "Masukkan h = ";
     cin >> h;
