@@ -33,7 +33,6 @@ void menuPerDif() {
             cout << "Penyelesaian Menggunakan Metode Euler" << endl;
             cout << "x"<< setw(16)<< "y"<<setw(16)<<"y'"<<setw(16)<<"hy'"<<setw(16)<<"y+hy'\n";
             cout << "__________________________________________________________________________\n";
-            //Begin Euler Routine
             yi = yo;
             while(x0<x){
                 y=yi+h*f(x0,yi);
@@ -45,19 +44,19 @@ void menuPerDif() {
             cout << "__________________________________________________________________________\n";
             cout << "Nilai y pada x = " << x << " adalah " << y << "\n\n";
             break;
-        case 2:
+        case 2: //Euler Termodifikasi
             cout << "Penyelesaian Menggunakan Metode Euler Termodifikasi" << endl;
             cout<<"x"<<setw(16)<<"y"<<setw(16)<<"hy'"<<setw(16)<<"y_new"<<setw(16)<<"hy_new'"<<setw(16)<<"hy'avg"<<setw(16)<<"y_n+1"<<endl;
             cout<<"--------------------------------------------------------------------------------------------------\n"; 
             while(fabs(x-x0)>0.0000001){   
-                dy1=h*f(x0,yo);        //calculate slope or dy/dx at x0,yo
-                y_i=yo+dy1;            //calculate new y, which is yo+h*dy/dx
-                dy2=h*f(x0+h,y_i);        //calculate slope or dy/dx at x0+h (new x),new y
-                dy_avg=(dy1+dy2)/2.0;        //calculate the average of the slopes at yo and new y
-                y_n=yo+dy_avg;            //calculate new y, which is yo+h*average(dy/dx)   
+                dy1=h*f(x0,yo);       
+                y_i=yo+dy1;           
+                dy2=h*f(x0+h,y_i);     
+                dy_avg=(dy1+dy2)/2.0;  
+                y_n=yo+dy_avg;             
                 cout<<x0<<setw(16)<<yo<<setw(16)<<dy1<<setw(16)<<y_i<<setw(16)<<dy2<<setw(16)<<dy_avg<<setw(16)<<y_n<<endl;
-                x0=x0+h;            //calculate new x.
-                yo=y_n;                //pass this new y as yo in the next iteration.
+                x0=x0+h;           
+                yo=y_n;           
             }
             cout<<x0<<setw(16)<<yo<<endl;
             cout << "____________________________________________________________________________________________________________\n";
@@ -85,13 +84,13 @@ void menuPerDif() {
 
 int main() {
     int i;
-    cout << "Enter the initial condition for y: ";
+    cout << "Kondisi awal untuk y: ";
     cin >> yo;
-    cout << "Enter the initial condition for x: ";
+    cout << "Kondisi awal untuk x: ";
     cin >> x0;
-    cout << "Enter the value of x for which y is required: ";
+    cout << "Nilai x pada saat y yang dicari: ";
     cin >> x;
-    cout << "Enter the step-width h: ";
+    cout << "Besar increment (h): ";
     cin >> h;
     menuPerDif();
 }
