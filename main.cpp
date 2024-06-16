@@ -40,40 +40,35 @@ int main()
                 system("cls");
                 while (true) {
                     // Header
-                    cout << "=============================" << endl;
-                    cout << "Solusi Matematika Siswa (SMS)" << endl;
-                    cout << "=============================" << endl;
-                    cout << endl;
+                    float lower, upper, integration=0.0, stepSize, k;
+ int i, subInterval;
 
-                    cout << endl << "1. Menghitung Keliling dan Luas Persegi";
-                    cout << endl << endl;
+ /* Input */
+ #define f(x) 1/(1+pow(x,2))
+ cout<<"Enter lower limit of integration: ";
+ cin>>lower;
+ cout<<"Enter upper limit of integration: ";
+ cin>>upper;
+ cout<<"Enter number of sub intervals: ";
+ cin>>subInterval;
 
-                    // Isi
-                    float K_1, L_1, s_1;
-                    cout << "Masukan sisi : ";
-                    cin >> s_1;
-                    //kondisi biar ga negatif
-                    if( s_1 < 0) {
-                        cout << "Panjang tidak bisa negatif!";
-                    }
-                    else {
-                    //rumus
-                    L_1 = s_1 * s_1;
-                    K_1 = 4 * s_1;
-                    //output
-                    cout << endl;
-                    cout << "Luas persegi : " << s_1 << " * " << s_1 << " = " << L_1 << endl;
-                    cout << "Keliling persegi : " << 4 << " * " << s_1 << " = " << K_1 << endl;
-                    cout << endl;
+ /* Calculation */
 
-                    for (int i = 1; i <= s_1; i++) {
-                        for (int j = 1; j <= s_1; j++) {
-                            cout << " *";
-                        }
-                        cout << endl;
-                    }
-                    }
-                    cout << endl;   
+ /* Finding step size */
+ stepSize = (upper - lower)/subInterval;
+
+ /* Finding Integration Value */
+ integration = f(lower) + f(upper);
+
+ for(i=1; i<= subInterval-1; i++)
+ {
+  k = lower + i*stepSize;
+  integration = integration + 2 * (f(k));
+ }
+
+ integration = integration * stepSize/2;
+
+ cout<< endl<<"Required value of integration is: "<< integration;   
                     // Pilihan
                     cout << "Ingin membuat lagi? [Y/y = Iya] : ";
                     cin >> pilihan_menu;
