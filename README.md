@@ -9,5 +9,6 @@ perdiff (Alvaro) :
 -euler
 -euler modif
 -runge kuta
-
-(((Durio nitip nama)))
+Durio 
+PPT
+gabubngin
